@@ -20,7 +20,7 @@
     @stack('style')
     <script>
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            window.location = window.location.href.replace("www.fangxinmai.com","m.fangxinmai.com");
+            window.location = window.location.href.replace("www.jiangshanshi.com","m.jiangshanshi.com");
         }
     </script>
 </head>
