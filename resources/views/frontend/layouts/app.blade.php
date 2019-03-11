@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', app_name())</title>
     @if(request()->is('/'))
-    <meta name="keywords" content="放心购,购物网,网络购物,折扣网,天天特价,特价网,九块九包邮,全场包邮,今日特价">
-    <meta name="description" content="放心购网络购物网能帮您买到更具性价比的产品,有各大商城的服饰、时尚鞋包、美食小吃、居家生活、母婴等产品促销优惠信息和折扣秒杀特价商品!是您网络购物省钱的首选网站!">
+    <meta name="keywords" content="拼购网,购物网,网络购物,折扣网,天天特价,特价网,九块九包邮,全场包邮,今日特价">
+    <meta name="description" content="拼购网能帮您买到更具性价比的产品,有各大商城的服饰、时尚鞋包、美食小吃、居家生活、母婴等产品促销优惠信息和折扣秒杀特价商品!是您网络购物省钱的首选网站!">
     @endif
     {{ style(url('css/wwwfxg.css')) }}
     {{ style(url('css/banner.css')) }}

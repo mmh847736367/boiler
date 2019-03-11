@@ -9,6 +9,10 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <title>@yield('title', config('app.name'))</title>
+    @if(request()->is('/'))
+    <meta name="keywords" content="拼购网,购物网,网络购物,折扣网,天天特价,特价网,九块九包邮,全场包邮,今日特价">
+    <meta name="description" content="拼购网能帮您买到更具性价比的产品,有各大商城的服饰、时尚鞋包、美食小吃、居家生活、母婴等产品促销优惠信息和折扣秒杀特价商品!是您网络购物省钱的首选网站!">
+    @endif
     <link rel="icon" href="/favicon.ico" type="images/x-icon">
     {{ style(url('css/mobilecss.css')) }}
     @stack('script')
@@ -31,19 +35,21 @@
         <div class="nave clear">
             <div class="navelist">
                 <ul>
-                    <li><a href="mlist.html">女装</a></li>
-                    <li><a href="mlist.html">男装</a></li>
-                    <li><a href="mlist.html">内衣</a></li>
-                    <li><a href="mlist.html">女鞋</a></li>
-                    <li><a href="mlist.html">男鞋</a></li>
+                    <li><a href="/lmnvzhuang">女装</a></li>
+                    <li><a href="/lmnanzhuang">男装</a></li>
+                    <li><a href="/lmneiye">内衣</a></li>
+                    <li><a href="/lmxiebao">鞋包</a></li>
+                    <li><a href="/lmpeishi">配饰</a></li>
                 </ul>
                 <div id="aa" onclick="toggleWords(this);" class="more arrow_down"><i></i></div>
             </div>
-            <div class="dewm" id="dewmdiv"><a href="#">女包</a><a href="#">男包</a><a href="#">日用</a><a href="#">床品</a><a
-                        href="#">收纳</a><a href="#">护肤</a><a href="#">彩妆</a><a href="#">护发</a><a href="#">户外</a><a
-                        href="#">运动服</a><a href="#">饰品</a><a href="#">手表</a><a href="#">眼镜</a><a href="#">数码配件</a><a
-                        href="#">电脑</a><a href="#">家居</a><a href="#">玩具</a><a href="#">零食</a><a href="#">冲饮</a><a
-                        href="#">电器</a><a href="#">厨房</a><a href="#">宠物</a><a href="#">音乐音像</a></div>
+            <div class="dewm" id="dewmdiv">
+                <a href="/lmjiaju">家居</a>
+                <a href="/lmmeizhuang">美妆</a>
+                <a href="/lmmeishi">美食</a>
+                <a href="/lmshuma">数码</a>
+                <a href="/lmhuwai">户外</a>
+            </div>
         </div>
     </div>
 </div>
