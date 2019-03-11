@@ -11,6 +11,7 @@
     <title>@yield('title', config('app.name'))</title>
     <link rel="icon" href="/favicon.ico" type="images/x-icon">
     {{ style(url('css/mobilecss.css')) }}
+    @stack('script')
 </head>
 <body>
 <div class="top">

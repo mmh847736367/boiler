@@ -1,5 +1,9 @@
 @extends('frontend.layouts.app')
 
+@push('script')
+{{ script(url('js/mobilecptu.js')) }}
+@endpush
+
 @section('title', $viewData['title'].'_'.app_name())
 @section('content')
     <div class="mxwidth clear">
