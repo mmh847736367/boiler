@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app_mobile')
 
 @section('title', $viewData['title'].'_'.app_name())
-    
+
 @push('script')
 {{ style(url('css/mobilecptu.css')) }}>
 {{ script(url('js/mobilecptu.js')) }}
