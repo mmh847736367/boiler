@@ -49,7 +49,11 @@ class PageController
             Cache::put($cacheKey, $this->viewData,60);
             $this->_getSearchResult($q, $page);
             $this->viewData['title'] = $category->name;
-            $p = new Page(config('app.url').'/lm'.$category->slug,$page,$this->viewData['lastPage']);
+            if(is_mobile()) {
+                $p = new Page(config('app.mobileurl').'/lm'.$category->slug,$page,$this->viewData['lastPage']);
+            }else {
+                $p = new Page(config('app.url').'/lm'.$category->slug,$page,$this->viewData['lastPage']);
+            }
             $this->viewData['pageHtml'] = $p->init();
             Cache::put($cacheKey, $this->viewData, 60);
         }
@@ -69,7 +73,11 @@ class PageController
         } else {
             $this->_getSearchResult($keyword->name, $page);
             $this->viewData['title'] = $keyword->name;
-            $p = new Page(config('app.url').'/s/'.$slug,$page,$this->viewData['lastPage']);
+            if(is_mobile()) {
+                $p = new Page(config('app.mobileurl').'/s/'.$slug,$page,$this->viewData['lastPage']);
+            } else {
+                $p = new Page(config('app.url').'/s/'.$slug,$page,$this->viewData['lastPage']);
+            }
             $this->viewData['pageHtml'] = $p->init();
             Cache::put($cacheKey, $this->viewData, 60);
         }
