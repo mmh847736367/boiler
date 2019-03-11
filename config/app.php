@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    'mobileurl' => env('APP_MOBILEURL', 'http://localhost'),
     'asset_url' => env('ASSET_URL', null),
 
     /*
