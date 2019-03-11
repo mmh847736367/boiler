@@ -9,7 +9,7 @@
             @foreach($viewData['goods'] as $good)
             <li class="goods-item"><a href="{{ route('frontend.good', $good['slug']) }}">
                     <div class="goods-pic">
-                        <div class="goods-tu goods-img"><img src="{{ url('img/upload/'.$good['slugImg']) }}"></div>
+                        <div class="goods-tu goods-img"><img src="{{ config('app.url').'img/upload/'.$good['slugImg']) }}"></div>
                     </div>
                     <div class="goods-item-name">{{ $good['title'] }}/div>
                     <div class="goods-item-price">￥{{ $good['price'] }}</div>

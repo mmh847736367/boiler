@@ -1,9 +1,12 @@
 @extends('frontend.layouts.app_mobile')
 
 @section('title', $viewData['title'].'_'.app_name())
+    
 @push('script')
+{{ style(url('css/mobilecptu.css')) }}>
 {{ script(url('js/mobilecptu.js')) }}
 @endpush
+
 @section('content')
 <div class="box">
     <div id="cptubox">
@@ -12,14 +15,13 @@
                 <div class="tu">
                     <ul>
                         @foreach($viewData['good']['slugImg'] as $slugImg)
-                        <li><img src="{{ url('img/upload/'.$slugImg) }}"></li>
+                        <li><img src="{{ config('app.url').'/img/upload/'.$slugImg }}"></li>
                         @endforeach
                     </ul>
                 </div>
             </div>
             <div class="tunamblist">
                 <ul>
-
                     @foreach($viewData['good']['slugImg'] as $key => $slugImg)
                     <li class="">{{ $key }}</li>
                     @endforeach
@@ -68,7 +70,7 @@
             @foreach($viewData['relateGoods'] as $good)
             <li class="goods-item"><a href="{{ route('frontend.good', $good['slug']) }}">
                     <div class="goods-pic">
-                        <div class="goods-tu goods-img"><img src="{{ url('img/upload/'.$good['slugImg']) }}"></div>
+                        <div class="goods-tu goods-img"><img src="{{ config('app.url').'/img/upload/'.$good['slugImg'] }}"></div>
                     </div>
                     <div class="goods-item-name">{{ $good['title'] }}</div>
                     <div class="goods-item-price">￥{{ $good['price'] }}</div>
