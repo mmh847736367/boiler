@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="mobile-agent" content="format=html5; url={{ config('app.mobileurl').$_SERVER['REQUEST_URI'] }}">
+    <meta name="mobile-agent" content="format=xhtml; url={{ config('app.mobileurl').$$_SERVER['REQUEST_URI'] }}">
     <meta name="applicable-device" content="pc">
     <link rel="icon" href="/favicon.ico" type="images/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +18,11 @@
     {{ style(url('css/wwwfxg.css')) }}
     {{ style(url('css/banner.css')) }}
     @stack('style')
+    <script>
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            window.location = window.location.href.replace("www.fangxinmai.com","m.fangxinmai.com");
+        }
+    </script>
 </head>
 <body>
 <div class="top">
