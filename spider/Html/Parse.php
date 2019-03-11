@@ -84,7 +84,11 @@ class Parse
             return strstr($node->attr('data-src'), '_50x50.jpg', true);
         });
         $data['slugImg'] = self::encodeImgs($data['images']);
-        $data['price'] = (int) $crawler->filter('em.tb-rmb-num')->text();
+        try {
+            $data['price'] = (int) $crawler->filter('em.tb-rmb-num')->text();
+        }catch (\InvalidArgumentException $e) {
+            $data['price'] = 0;
+        }
         $introHtml = $crawler->filter('ul.attributes-list')->html();
         $introCrawler = new Crawler($introHtml);
         $data['intro'] = $introCrawler->filter('li')->each(function(Crawler $node, $i) {
