@@ -1,6 +1,9 @@
 @extends('frontend.layouts.app_mobile')
 
 @section('title', $viewData['title'].'_'.app_name())
+@push('script')
+{{ script(url('js/mobilecptu.js')) }}
+@endpush
 @section('content')
 <div class="box">
     <div id="cptubox">
