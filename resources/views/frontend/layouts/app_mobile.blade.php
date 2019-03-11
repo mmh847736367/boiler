@@ -37,7 +37,7 @@
                 <ul>
                     <li><a href="/lmnvzhuang">女装</a></li>
                     <li><a href="/lmnanzhuang">男装</a></li>
-                    <li><a href="/lmneiye">内衣</a></li>
+                    <li><a href="/lmneiyi">内衣</a></li>
                     <li><a href="/lmxiebao">鞋包</a></li>
                     <li><a href="/lmpeishi">配饰</a></li>
                 </ul>
