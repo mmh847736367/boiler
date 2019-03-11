@@ -21,7 +21,7 @@ if (! function_exists('app_name')) {
 if(! function_exists('is_mobile')) {
 
     function is_mobile() {
-        return strpos($_SERVER['HTTP_HOST'], "m.boiler") !== false;
+        return strpos($_SERVER['HTTP_HOST'], "m.fangxinmai") !== false;
     }
 }
 
