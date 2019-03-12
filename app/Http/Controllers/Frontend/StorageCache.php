@@ -9,6 +9,7 @@ trait StorageCache
     public $get_storage_rand_num = 10;
     public $set_storage_rand_num = 10;
 
+
     public function cacheKeywords(Keyword $keyword)
     {
         $luru02 = [

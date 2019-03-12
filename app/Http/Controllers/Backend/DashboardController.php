@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Spider\Utils\System;
 
 /**
  * Class DashboardController.
@@ -14,6 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        return System::get_used_status();
+//        return view('backend.dashboard');
     }
 }

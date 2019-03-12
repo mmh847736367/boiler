@@ -29,6 +29,7 @@ class PageController
         $this->resolver = $resolver;
         $this->keywordRepository = $keywordRepository;
         $this->viewData = [];
+        $this->get_storage_rand_num = config('app.rand');
     }
 
     public function index()

@@ -4,6 +4,8 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TbSpiderController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\NavController;
+use App\Http\Controllers\Backend\KeywordController;
+
 /*
  * All route names are prefixed with 'admin.'.
  */
@@ -37,13 +39,13 @@ Route::group(['prefix' => 'content'], function () {
  * Nav Management
  */
 Route::group(['prefix' => 'content'], function () {
-Route::get('nav',[NavController::class, 'index'])->name('nav.index');
-    Route::get('nav/create', [NavController::class, 'create'])->name('nav.create');
-    Route::post('nav', [NavController::class, 'store'])->name('nav.store');
+Route::get('keyword',[KeywordController::class, 'index'])->name('keyword.index');
+    Route::get('nav/create', [KeywordController::class, 'create'])->name('keyword.create');
+    Route::post('nav', [KeywordController::class, 'store'])->name('keyword.store');
 
     Route::group(['prefix' => 'nav/{nav}'], function () {
-        Route::get('edit', [NavController::class, 'edit'])->name('nav.edit');
-        Route::patch('/', [NavController::class, 'update'])->name('nav.update');
-        Route::delete('/', [NavController::class, 'destroy'])->name('nav.destroy');
+        Route::get('edit', [KeywordController::class, 'edit'])->name('keyword.edit');
+        Route::patch('/', [KeywordController::class, 'update'])->name('keyword.update');
+        Route::delete('/', [KeywordController::class, 'destroy'])->name('keyword.destroy');
     });
 });
