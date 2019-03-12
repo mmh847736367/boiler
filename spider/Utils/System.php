@@ -18,6 +18,7 @@ class System
 
         pclose($fp);
         $sys_info = explode("\n",$rs);
+        dd($sys_info);
         $tast_info = explode(",",$sys_info[3]);//进程 数组
         $cpu_info = explode(",",$sys_info[4]);  //CPU占有量  数组
         $mem_info = explode(",",$sys_info[5]); //内存占有量 数组
