@@ -80,12 +80,14 @@
         </ul>
     </div>
 
+    @if(isset($viewData['relateWords']))
     <div class="wid12hr"></div>
     <div class="keyword"><span>相关搜索：</span>
        @foreach($viewData['relateWords'] as $word)
             <a href="{{ url('s/'.$word->slug).'/' }}">{{ $word->name }}</a>
         @endforeach
     </div>
+    @endif
 
 </div>
 @endsection

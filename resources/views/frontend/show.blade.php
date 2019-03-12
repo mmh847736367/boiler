@@ -82,10 +82,11 @@
 
         </div>
     </div>
-
+    @if(isset($viewData['relateWords']))
     <div class="mxwidth word"><span>相关搜索：</span>
         @foreach($viewData['relateWords'] as $word)
             <a href="{{ url('s/'.$word->slug).'/' }}">{{ $word->name }}</a>
         @endforeach
     </div>
+    @endif
 @endsection

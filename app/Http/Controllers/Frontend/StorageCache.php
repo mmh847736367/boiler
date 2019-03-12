@@ -6,7 +6,7 @@ use App\Models\Keyword;
 
 trait StorageCache
 {
-    public $get_storage_rand_num = 1;
+    public $get_storage_rand_num = 10;
     public $set_storage_rand_num = 10;
 
     public function cacheKeywords(Keyword $keyword)
