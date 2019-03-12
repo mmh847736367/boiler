@@ -18,7 +18,6 @@ class System
 
         pclose($fp);
         $sys_info = explode("\n",$rs);
-        dd($sys_info);
         $tast_info = explode(",",$sys_info[3]);//进程 数组
         $cpu_info = explode(",",$sys_info[4]);  //CPU占有量  数组
         $mem_info = explode(",",$sys_info[5]); //内存占有量 数组
@@ -35,13 +34,14 @@ class System
         $mem_usage = round(100*intval($mem_used)/intval($mem_total),2);  //百分比
 
 
-//        $fp = popen('df -lh | grep -E "^(/)"',"r");
-//        $rs = fread($fp,1024);
-//        pclose($fp);
-//        $rs = preg_replace("/\s{2,}/",' ',$rs);  //把多个空格换成 “_”
-//        $hd = explode(" ",$rs);
-//        $hd_avail = trim($hd[3],'G'); //磁盘可用空间大小 单位G
-//        $hd_usage = trim($hd[4],'%'); //挂载点 百分比
+        $fp = popen('df -lh | grep -E "^(/)"',"r");
+        $rs = fread($fp,1024);
+        pclose($fp);
+        $rs = preg_replace("/\s{2,}/",' ',$rs);  //把多个空格换成 “_”
+        $hd = explode(" ",$rs);
+        dd($sys_info,$hd);
+        $hd_avail = trim($hd[3],'G'); //磁盘可用空间大小 单位G
+        $hd_usage = trim($hd[4],'%'); //挂载点 百分比
         //print_r($hd);
 
         return [
