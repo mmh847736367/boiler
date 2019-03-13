@@ -39,7 +39,6 @@ class System
         pclose($fp);
         $rs = preg_replace("/\s{2,}/",' ',$rs);  //把多个空格换成 “_”
         $hd = explode(" ",$rs);
-        dd($sys_info,$hd);
         $hd_avail = trim($hd[3],'G'); //磁盘可用空间大小 单位G
         $hd_usage = trim($hd[4],'%'); //挂载点 百分比
         //print_r($hd);
