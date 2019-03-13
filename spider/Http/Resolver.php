@@ -216,4 +216,25 @@ class Resolver
         return $data;
 
     }
+
+    public function requestBaidurankAizhan($page)
+    {
+        $url = 'https://baidurank.aizhan.com/mobile/qqyou.com/-1/0/'.$page.'/position/1/';
+        $refer = 'https://www.aizhan.com/cha/qqyou.com/';
+        $client = new Client();
+        $html = $client->get($url, [
+            'verify' => false,
+            'headers' => [
+                'Referer' => $refer,
+                'User-Agent' => 'Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.2; Trident/4.0; Media Center PC 4.0; SLCC1; .NET CLR 3.0.04320)',
+            ]
+        ])->getBody()->getContents();
+
+        return $html;
+    }
+
+    public function getAizhanKeyword($page)
+    {
+        return Parse::getAizhanKeywords($this->requestBaidurankAizhan($page));
+    }
 }

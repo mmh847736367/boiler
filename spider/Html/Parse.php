@@ -228,4 +228,18 @@ class Parse
         });
         return $words;
     }
+
+    public static function getAizhanKeywords($html)
+    {
+        $crawler = new Crawler($html);
+        $words = $crawler->filter('table > tbody > tr > td.title > a')
+            ->reduce(function(Crawler $node, $i){
+                $name = trim($node->text());
+                return strpos($name, 'qqyou') === false && strpos($name, 'q友') === false;
+        })->each(function(Crawler $node, $i) {
+                $name = trim($node->text());
+            return ['name' => $name, 'type' => '2'];
+        });
+        return $words;
+    }
 }

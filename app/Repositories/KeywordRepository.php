@@ -45,6 +45,7 @@ class KeywordRepository extends BaseRepository
 
         return $this->model
             ->create($data);
+
     }
 
     public function createMultiple(array $data)

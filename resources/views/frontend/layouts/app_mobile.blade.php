@@ -4,9 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-agent" content="format=html5; url={{ config('app.url').$_SERVER['REQUEST_URI'] }}">
+    <meta name="mobile-agent" content="format=xhtml; url={{ config('app.url').$_SERVER['REQUEST_URI'] }}">
     <meta content="telephone=no" name="format-detection">
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
+    <meta name="applicable-device" content="mobile">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <title>@yield('title', config('app.name'))</title>
     @if(request()->is('/'))

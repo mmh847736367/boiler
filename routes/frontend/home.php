@@ -26,7 +26,7 @@ Route::post('query', [PageController::class, 'formSearch'])->name('form.search')
 Route::get('g/{id}.html', [PageController::class, 'show'])->name('good');
 
 Route::get('img/upload/{slug}', [ImageController::class, 'taobao'])->name('image');
-
+Route::get('/pinpaiku/{page?}',[PageController::class, 'pinpai'])->where('page', '[0-9]+\.html')->name('pinpai');
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

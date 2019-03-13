@@ -123,6 +123,17 @@ class PageController
         return view(is_mobile() ? 'frontend.mobile.show' : 'frontend.show')->with('viewData', $this->viewData);
     }
 
+    public function pinpai($page = '1.html')
+    {
+        $page = (int) $page ?: 1;
+        $words = $this->keywordRepository
+            ->where('type',2)
+            ->orderBy('created_at', 'desc')
+            ->paginate(100,['*'],'',$page)
+            ->withUrl('pinpaiku');
+        return view('frontend.pplist')->with('keywords', $words);
+    }
+
     public function _getJindongRelateWordsByName($name)
     {
         $words = $this->resolver->getJdKeywords($name);
