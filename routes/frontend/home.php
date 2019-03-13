@@ -21,12 +21,12 @@ Route::post('contact/send', [ContactController::class, 'send'])->name('contact.s
 Route::middleware(RedirectForSeo::class)->group(function() {
     Route::get('lm{category}/{page?}', [PageController::class, 'lanmu'])->where('page', '[0-9]+\.html')->name('categoty');
     Route::get('s/{slug}/{page?}', [PageController::class, 'search'])->where('page', '[0-9]+\.html')->name('search');
+    Route::get('/pinpaiku/{page?}',[PageController::class, 'pinpai'])->where('page', '[0-9]+\.html')->name('pinpai');
 });
 Route::post('query', [PageController::class, 'formSearch'])->name('form.search');
 Route::get('g/{id}.html', [PageController::class, 'show'])->name('good');
 
 Route::get('img/upload/{slug}', [ImageController::class, 'taobao'])->name('image');
-Route::get('/pinpaiku/{page?}',[PageController::class, 'pinpai'])->where('page', '[0-9]+\.html')->name('pinpai');
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
