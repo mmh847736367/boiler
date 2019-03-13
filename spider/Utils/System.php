@@ -46,8 +46,7 @@ class System
         $fp = popen('du -sh /data/mysql', "r");
         $fs = fread($fp, 1024);
         pclose($fp);
-        $hd = explode(" ",$fs);
-        dd($hd);
+        $hd = explode("\t",$fs);
         $mysql_hd_usage = trim($hd[0], 'G');
 
         return [
