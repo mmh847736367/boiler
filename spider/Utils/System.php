@@ -39,23 +39,25 @@ class System
         pclose($fp);
         $rs = preg_replace("/\s{2,}/",' ',$rs);  //把多个空格换成 “_”
         $hd = explode(" ",$rs);
-        $hd_avail = trim($hd[3],'G'); //磁盘可用空间大小 单位G
-        $hd_usage = trim($hd[4],'%'); //挂载点 百分比
+        $hd_avail = trim($hd[3]); //磁盘可用空间大小 单位G
+        $hd_usage = trim($hd[4]); //挂载点 百分比
         //print_r($hd);
 
         $fp = popen('du -sh /data/mysql', "r");
         $fs = fread($fp, 1024);
         pclose($fp);
         $hd = explode("\t",$fs);
-        $mysql_hd_usage = trim($hd[0], 'G');
+        $mysql_hd_usage = trim($hd[0]);
 
         return [
             'cpu_usage'=>$cpu_usage,
+            'mem_total' => $mem_total,
+            'mem_used' => $mem_used,
             'mem_usage'=>$mem_usage,
             'hd_avail'=>$hd_avail,
             'hd_usage'=>$hd_usage,
             'tast_running'=>$tast_running,
-            'mysql_hd_useage' => $mysql_hd_usage
+            'mysql_hd_usage' => $mysql_hd_usage
         ];
     }
 }
