@@ -56,11 +56,11 @@
                             栏目管理
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/content/nav')) }}" href="{{ route('admin.nav.index') }}">
-                            导航管理
-                        </a>
-                    </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link {{ active_class(Active::checkUriPattern('admin/content/nav')) }}" href="{{ route('admin.nav.index') }}">--}}
+                            {{--导航管理--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                 </ul>
             </li>
 

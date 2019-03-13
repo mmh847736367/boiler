@@ -15,7 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $status =  System::get_used_status();
+        $status = System::get_used_status();
         return view('backend.dashboard');
+
     }
 }
