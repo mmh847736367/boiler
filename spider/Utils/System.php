@@ -44,12 +44,19 @@ class System
         $hd_usage = trim($hd[4],'%'); //挂载点 百分比
         //print_r($hd);
 
+        $fp = popen('du -sh /data/mysql', "r");
+        $fs = fread($fp, 1024);
+        pclose($fp);
+        $hd = explode(" ",$fs);
+        $mysql_hd_usage = trim($hd[0], 'G');
+
         return [
             'cpu_usage'=>$cpu_usage,
             'mem_usage'=>$mem_usage,
-//            'hd_avail'=>$hd_avail,
-//            'hd_usage'=>$hd_usage,
+            'hd_avail'=>$hd_avail,
+            'hd_usage'=>$hd_usage,
             'tast_running'=>$tast_running,
+            'mysql_hd_useage' => $mysql_hd_usage
         ];
     }
 }
