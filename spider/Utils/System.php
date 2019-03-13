@@ -47,6 +47,7 @@ class System
         $fs = fread($fp, 1024);
         pclose($fp);
         $hd = explode(" ",$fs);
+        dd($hd);
         $mysql_hd_usage = trim($hd[0], 'G');
 
         return [
