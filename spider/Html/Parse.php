@@ -235,7 +235,7 @@ class Parse
         $words = $crawler->filter('table > tbody > tr > td.title > a')
             ->reduce(function(Crawler $node, $i){
                 $name = trim($node->text());
-                return strpos($name, 'qqyou') === false && strpos($name, 'q友') === false;
+                return strpos($name, 'qqyou') === false && strpos($name, 'q友') === false && strpos($name, 'qq') === false && mb_strlen($name) > 1;
         })->each(function(Crawler $node, $i) {
                 $name = trim($node->text());
             return ['name' => $name, 'type' => '2'];
