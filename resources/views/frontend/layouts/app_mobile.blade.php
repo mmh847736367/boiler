@@ -20,7 +20,7 @@
     {{ style(url('css/mobilecss.css')) }}
     @stack('script')
     <script>
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             window.location = window.location.href.replace("m.jiangshanshi.com","www.jiangshanshi.com");
         }
     </script>
