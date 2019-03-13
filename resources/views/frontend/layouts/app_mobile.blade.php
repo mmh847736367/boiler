@@ -62,8 +62,8 @@
 <a href="javascript: void(0);" data-event_id="MHome_BackTop" class="totop" style="display: none;"></a>
 
 <div id="foot">
-    <div class="foot-copyright">&copy; {{ date('Y') }} <a
-                href="{{ config('app.mobileurl') }}">{{ config('app.name') }}</a> All Rights Reserved
+    <div class="foot-copyright">&copy; {{ date('Y') }}
+        <a href="{{ config('app.mobileurl') }}">{{ config('app.name') }}</a> All Rights Reserved {{script(url('js/tongji.js'))}}
     </div>
 </div>
 

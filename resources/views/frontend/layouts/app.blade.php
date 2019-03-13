@@ -36,8 +36,10 @@
 
 @yield('content')
 
-
-<div class="mxwidth foot"> Copyright &copy; {{ date('Y') }} <a href="{{ config('app.url') }}">{{ config('app.name') }}</a>All Rights Reserved</div>
+<div class="mxwidth foot">
+    Copyright &copy; {{ date('Y') }} <a href="{{ config('app.url') }}">{{ config('app.name') }}</a>All Rights Reserved
+    {{script(url('js/tongji.js'))}}
+</div>
 {{ script(url('js/jquery.js')) }}
 {{ script(url('js/wwwlib.js')) }}
 {{ script(url('js/banner.js')) }}
