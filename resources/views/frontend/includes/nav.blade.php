@@ -32,6 +32,7 @@
             @foreach($categories as $category)
             <a href="{{ url('lm'.$category->slug) }}">{{ $category->name }}</a>
             @endforeach
+            <a href="{{ url('/pinpaiku').'/' }}">品牌库</a>
         </div>
     </div>
 </div>
