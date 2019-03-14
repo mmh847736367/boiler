@@ -27,12 +27,12 @@ class KeywordController extends Controller
             $keywords = $this->keywordRepository
                 ->withTrashed()
                 ->where('name', '%'.$q.'%', 'like')
-                ->orderBy('id', 'desc')
+                ->orderBy('updated_at', 'desc')
                 ->paginate(25);
         } else {
             $keywords = $this->keywordRepository
                 ->withTrashed()
-                ->orderBy('id', 'desc')
+                ->orderBy('updated_at', 'desc')
                 ->paginate(25);
         }
 
