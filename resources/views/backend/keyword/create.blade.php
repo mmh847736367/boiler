@@ -22,7 +22,7 @@
                     @if(old('uploaded') == 1)
                     <form action="{{ route('admin.keyword.store') }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-danger">执行添加关键字</button>
+                        <button type="submit" class="btn btn-success">执行添加关键字</button>
                     </form>
                     @else
                         <form action="{{ route('admin.store.keyword.upload') }}" method="post" enctype="multipart/form-data">
@@ -54,7 +54,7 @@
                     @if(old('uploaded') == 2)
                     <form action="{{ route('admin.keyword.filter.store') }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-danger">执行过滤关键字</button>
+                        <button type="submit" class="btn btn-success">执行过滤关键字</button>
                     </form>
                     @else
                     <form action="{{ route('admin.store.keyword.filter.upload') }}" method="post" enctype="multipart/form-data">

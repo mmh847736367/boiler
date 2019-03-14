@@ -84,7 +84,7 @@ class KeywordController extends Controller
     public function destroy(Keyword $keyword)
     {
         $keyword->delete();
-        return redirect()->route('admin.keyword.index')->withFlashSuccess('关键字过滤成功');
+        return redirect()->back()->withFlashSuccess('关键字过滤成功');
     }
 
     public function upload(Request $request)
