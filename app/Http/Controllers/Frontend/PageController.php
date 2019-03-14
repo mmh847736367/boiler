@@ -97,6 +97,9 @@ class PageController
         }
         $q = $request->wd;
         $keyword = $this->keywordRepository->create(['name' => $q]);
+        if(empty($keyword)) {
+            abort(404);
+        }
         $slug = $keyword->slug;
         \Log::info('user search', ['wd' => $q]);
         header("HTTP/1.1 301 Moved Permanently");
