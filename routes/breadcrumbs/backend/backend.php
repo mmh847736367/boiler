@@ -36,6 +36,10 @@ Breadcrumbs::for('admin.keyword.index', function($trail) {
     $trail->push('关键字管理', url('admin/content/keyword'));
 });
 Breadcrumbs::for('admin.keyword.create', function($trail) {
-    $trail->parent('admin.dashboard');
+    $trail->parent('admin.keyword.index');
     $trail->push('关键字批量添加', url('admin/content/keyword/create'));
 });
+//Breadcrumbs::for('admin.keyword.search', function($trail) {
+//    $trail->parent('admin.keyword.index');
+//    $trail->push('关键字查询', url('admin/content/keyword/search'));
+//});

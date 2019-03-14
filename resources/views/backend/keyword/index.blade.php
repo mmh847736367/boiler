@@ -16,14 +16,13 @@
                     </h4>
                 </div><!--col-->
                 <div class="col-sm-5">
-                    <form class="form-horizontal" action="/admin/content/keyword/search" method="get">
-                        @csrf
+                    <form class="form-horizontal" action="/admin/content/keyword" method="get">
                         <div class="form-group">
                             <div class="controls">
                                 <div class="input-group">
-                                    <input class="form-control" name="q" size="16" type="text">
+                                    <input class="form-control" name="q" size="16" type="text"  value="{{ request()->query('q') }}">
                                     <span class="input-group-append">
-                                        <button type="submit" class="btn btn-secondary" type="button">Search</button>
+                                            <button type="submit" class="btn btn-secondary" type="button">Search</button>
                                     </span>
                                 </div>
                             </div>
@@ -70,10 +69,14 @@
                 </div><!--col-->
             </div><!--row-->
 
-            <div>
-            <div class="col-5">
-            {!! $keywords->links() !!}
-            </div><!--col-->
+            <div class="row">
+                <div class="col-5">
+                @if(request()->has('q'))
+                    {!! $keywords->appends(['q' => request()->query('q')])->links() !!}
+                @else
+                    {!! $keywords->links() !!}
+                @endif
+                </div><!--col-->
             </div><!--row-->
         </div><!--card-body-->
     </div><!--card-->

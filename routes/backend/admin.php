@@ -39,10 +39,13 @@ Route::group(['prefix' => 'content'], function () {
  * Nav Management
  */
 Route::group(['prefix' => 'content'], function () {
-Route::get('keyword',[KeywordController::class, 'index'])->name('keyword.index');
+    Route::get('keyword',[KeywordController::class, 'index'])->name('keyword.index');
     Route::get('keyword/create', [KeywordController::class, 'create'])->name('keyword.create');
     Route::post('keyword', [KeywordController::class, 'store'])->name('keyword.store');
+    Route::post('keyword/filter', [KeywordController::class, 'filterStore'])->name('keyword.filter.store');
     Route::post('keyword/upload', [KeywordController::class, 'upload'])->name('store.keyword.upload');
+    Route::post('keyword/filter/upload', [KeywordController::class, 'filterUpload'])->name('store.keyword.filter.upload');
+//    Route::get('keyword/search', [KeywordController::class, 'search'])->name('keyword.search');
 
     Route::group(['prefix' => 'keyword/{keyword}'], function () {
         Route::get('edit', [KeywordController::class, 'edit'])->name('keyword.edit');

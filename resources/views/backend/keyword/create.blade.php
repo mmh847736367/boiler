@@ -12,23 +12,59 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h4 class="card-title mb-0">
-                        拼购关键字批量添加
+                        添加
                     </h4>
                 </div><!--col-->
             </div>
             <div class="row mt-4">
                 <div class="col">
-                    <form action="{{ route('admin.store.keyword.upload') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input id="file" type="file" name="keyword" required>
-                        <button type="submit" class="btn btn-primary">确定</button>
-                    </form>
 
+                    @if(old('uploaded') == 1)
                     <form action="{{ route('admin.keyword.store') }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-danger">批量添加关键字</button>
+                        <button type="submit" class="btn btn-danger">执行添加关键字</button>
                     </form>
+                    @else
+                        <form action="{{ route('admin.store.keyword.upload') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input id="file" type="file" name="keyword" required>
+                            <input type="hidden" name="uploaded" value="1">
+                            <button type="submit" class="btn btn-primary">上传</button>
+                        </form>
+                    @endif
                </div><!--col-->
+            </div><!--row-->
+
+
+        </div><!--card-body-->
+    </div><!--card-->
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h4 class="card-title mb-0">
+                        过滤
+                    </h4>
+                </div><!--col-->
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+
+                    @if(old('uploaded') == 2)
+                    <form action="{{ route('admin.keyword.filter.store') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">执行过滤关键字</button>
+                    </form>
+                    @else
+                    <form action="{{ route('admin.store.keyword.filter.upload') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input id="file" type="file" name="keyword" value="111" required>
+                        <input type="hidden" name="uploaded" value="2">
+                        <button type="submit" class="btn btn-primary">上传</button>
+                    </form>
+                    @endif
+                </div><!--col-->
             </div><!--row-->
 
 
