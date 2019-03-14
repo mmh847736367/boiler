@@ -40,12 +40,12 @@ Route::group(['prefix' => 'content'], function () {
  */
 Route::group(['prefix' => 'content'], function () {
 Route::get('keyword',[KeywordController::class, 'index'])->name('keyword.index');
-    Route::get('nav/create', [KeywordController::class, 'create'])->name('keyword.create');
-    Route::post('nav', [KeywordController::class, 'store'])->name('keyword.store');
+    Route::get('keyword/create', [KeywordController::class, 'create'])->name('keyword.create');
+    Route::post('keyword', [KeywordController::class, 'store'])->name('keyword.store');
+    Route::post('keyword/upload', [KeywordController::class, 'upload'])->name('store.keyword.upload');
 
-    Route::group(['prefix' => 'nav/{nav}'], function () {
+    Route::group(['prefix' => 'keyword/{keyword}'], function () {
         Route::get('edit', [KeywordController::class, 'edit'])->name('keyword.edit');
-        Route::patch('/', [KeywordController::class, 'update'])->name('keyword.update');
         Route::delete('/', [KeywordController::class, 'destroy'])->name('keyword.destroy');
     });
 });

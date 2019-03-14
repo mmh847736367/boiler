@@ -31,7 +31,11 @@ Breadcrumbs::for('admin.category.index', function($trail) {
     $trail->push('栏目管理', url('admin/content/category'));
 });
 
-Breadcrumbs::for('admin.nav.index', function($trail) {
+Breadcrumbs::for('admin.keyword.index', function($trail) {
     $trail->parent('admin.dashboard');
-    $trail->push('导航管理', url('admin/content/nav'));
+    $trail->push('关键字管理', url('admin/content/keyword'));
+});
+Breadcrumbs::for('admin.keyword.create', function($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('关键字批量添加', url('admin/content/keyword/create'));
 });

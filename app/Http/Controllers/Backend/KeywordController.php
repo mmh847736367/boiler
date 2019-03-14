@@ -6,7 +6,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Keyword;
 use App\Repositories\KeywordRepository;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class KeywordController extends Controller
 {
@@ -19,11 +22,12 @@ class KeywordController extends Controller
 
     public function index()
     {
-        return $this->keywordRepository
+        $keywords = $this->keywordRepository
+            ->withTrashed()
             ->orderBy('id', 'desc')
             ->paginate(25);
 
-        return view('backend.keyword.index');
+        return view('backend.keyword.index', compact('keywords'));
     }
 
     public function create()
@@ -38,14 +42,37 @@ class KeywordController extends Controller
         return view('backend.keyword.show');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $this->keywordRepository->create($request->all());
+        $contents = Storage::get('keyword/jiangshanshi.txt');
+        $words = explode("\n", $contents);
+        $words = collect($words)->filter(function($word) {
+            return mb_strlen($word) > 1;
+        })->map(function($word) {
+            return ['name' => $word, 'type' => 2];
+        });
+        $this->keywordRepository->createMultiple($words->all());
+
+        return redirect()->route('admin.keyword.index')->withFlashSuccess('关键字插入成功');
     }
 
-    public function delete(Keyword $keyword)
+    public function destroy(Keyword $keyword)
     {
-        return $keyword->delete();
+        $keyword->delete();
+        return redirect()->route('admin.keyword.index')->withFlashSuccess('关键字过滤成功');
     }
 
+    public function upload(Request $request)
+    {
+        $file = $request->file('keyword');
+        if (!$file->isValid()) {
+            return redirect()->route('admin.keyword.create')->withFlashDanger('文件验证失败');
+        }
+        if($file->extension() != 'txt'){
+            return redirect()->route('admin.keyword.create')->withFlashDanger('文件必须为txt');
+        }
+        $file->storeAs('keyword', 'jiangshanshi.txt');
+        return redirect()->route('admin.keyword.create')->withFlashSuccess('文件上传成功');
+
+    }
 }

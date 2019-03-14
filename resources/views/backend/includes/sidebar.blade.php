@@ -47,41 +47,41 @@
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/content*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/content*')) }}" href="#">
-                    <i class="nav-icon icon-list"></i> 内容管理
+                    <i class="nav-icon icon-list"></i> 拼购网管理
                 </a>
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{ active_class(Active::checkUriPattern('admin/content/category')) }}" href="{{ route('admin.category.index') }}">
-                            栏目管理
+                            导航
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(active::checkuripattern('admin/content/keyword')) }}" href="{{ route('admin.keyword.index') }}">
+                           关键字
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            {{--<li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/spider*'), 'open') }}">--}}
+                {{--<a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/spider*')) }}" href="#">--}}
+                    {{--<i class="nav-icon icon-list"></i> 抓取测试--}}
+                {{--</a>--}}
+
+                {{--<ul class="nav-dropdown-items">--}}
                     {{--<li class="nav-item">--}}
-                        {{--<a class="nav-link {{ active_class(Active::checkUriPattern('admin/content/nav')) }}" href="{{ route('admin.nav.index') }}">--}}
-                            {{--导航管理--}}
+                        {{--<a class="nav-link {{ active_class(Active::checkUriPattern('admin/spider/tb/show')) }}" href="{{ route('admin.spider.tbshow') }}">--}}
+                           {{--淘宝内页抓取--}}
                         {{--</a>--}}
                     {{--</li>--}}
-                </ul>
-            </li>
-
-            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/spider*'), 'open') }}">
-                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/spider*')) }}" href="#">
-                    <i class="nav-icon icon-list"></i> 抓取测试
-                </a>
-
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/spider/tb/show')) }}" href="{{ route('admin.spider.tbshow') }}">
-                           淘宝内页抓取
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/spider/tb/search')) }}" href="{{ route('admin.spider.tbsearch') }}">
-                           淘宝搜索页抓取
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link {{ active_class(Active::checkUriPattern('admin/spider/tb/search')) }}" href="{{ route('admin.spider.tbsearch') }}">--}}
+                           {{--淘宝搜索页抓取--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/log-viewer*')) }}" href="#">
