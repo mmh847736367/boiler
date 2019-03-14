@@ -52,12 +52,12 @@
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/content/category')) }}" href="{{ route('admin.category.index') }}">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/content/category*')) }}" href="{{ route('admin.category.index') }}">
                             导航
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ active_class(active::checkuripattern('admin/content/keyword')) }}" href="{{ route('admin.keyword.index') }}">
+                        <a class="nav-link {{ active_class(active::checkuripattern('admin/content/keyword*')) }}" href="{{ route('admin.keyword.index') }}">
                            关键字
                         </a>
                     </li>

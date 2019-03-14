@@ -25,14 +25,18 @@ Breadcrumbs::for('admin.spider.tbshow.info', function($trail) {
     $trail->push('淘宝内页抓取结果', url('admin/spider/tb/show'));
 });
 
+Breadcrumbs::for('admin.jiangshanshi', function($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('拼购网', url('admin/content'));
+});
 
 Breadcrumbs::for('admin.category.index', function($trail) {
-    $trail->parent('admin.dashboard');
+    $trail->parent('admin.jiangshanshi');
     $trail->push('栏目管理', url('admin/content/category'));
 });
 
 Breadcrumbs::for('admin.keyword.index', function($trail) {
-    $trail->parent('admin.dashboard');
+    $trail->parent('admin.jiangshanshi');
     $trail->push('关键字管理', url('admin/content/keyword'));
 });
 Breadcrumbs::for('admin.keyword.create', function($trail) {

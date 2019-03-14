@@ -13,7 +13,7 @@ Route::redirect('/', '/admin/dashboard', 301);
 
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('dashborad/content', [DashboardController::class], 'jiangshanshi')->name('jiangshanshi');
+Route::get('content', [DashboardController::class, 'jiangshanshi'])->name('jiangshanshi');
 
 Route::get('spider/tb/show',[TbSpiderController::class, 'showPageIndex'])->name('spider.tbshow');
 Route::post('spider/tb/show',[TbSpiderController::class, 'getGoodInfo'])->name('spider.tbshow.info');

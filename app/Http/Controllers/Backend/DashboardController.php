@@ -26,8 +26,7 @@ class DashboardController extends Controller
         $count = [];
         $count['total'] = Keyword::count();
         $count['today']  = Keyword::where('updated_at', '>', Carbon::today())->count();
-        $count['yesterday']  = Keyword::where('updated_at', '>', Carbon::yesterday())->count();
-        return $count;
+        $count['yesterday']  = Keyword::where([['updated_at', '>', Carbon::yesterday()], ['updated_at', '<', Carbon::today()]])->count();
         return view('backend.content.index', compact('count'));
 
     }
