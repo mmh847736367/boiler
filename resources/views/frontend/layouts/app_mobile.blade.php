@@ -4,8 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-agent" content="format=html5; url={{ config('app.url').$_SERVER['REQUEST_URI'] }}">
-    <meta name="mobile-agent" content="format=xhtml; url={{ config('app.url').$_SERVER['REQUEST_URI'] }}">
     <meta content="telephone=no" name="format-detection">
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
@@ -43,20 +41,20 @@
         <div class="nave clear">
             <div class="navelist">
                 <ul>
-                    <li><a href="/lmnvzhuang">女装</a></li>
-                    <li><a href="/lmnanzhuang">男装</a></li>
-                    <li><a href="/lmneiyi">内衣</a></li>
-                    <li><a href="/lmxiebao">鞋包</a></li>
-                    <li><a href="/lmpeishi">配饰</a></li>
+                    <li><a href="/lmnvzhuang/">女装</a></li>
+                    <li><a href="/lmnanzhuang/">男装</a></li>
+                    <li><a href="/lmneiyi/">内衣</a></li>
+                    <li><a href="/lmxiebao/">鞋包</a></li>
+                    <li><a href="/lmpeishi/">配饰</a></li>
                 </ul>
                 <div id="aa" onclick="toggleWords(this);" class="more arrow_down"><i></i></div>
             </div>
             <div class="dewm" id="dewmdiv">
-                <a href="/lmjiaju">家居</a>
-                <a href="/lmmeizhuang">美妆</a>
-                <a href="/lmmeishi">美食</a>
-                <a href="/lmshuma">数码</a>
-                <a href="/lmhuwai">户外</a>
+                <a href="/lmjiaju/">家居</a>
+                <a href="/lmmeizhuang/">美妆</a>
+                <a href="/lmmeishi/">美食</a>
+                <a href="/lmshuma/">数码</a>
+                <a href="/lmhuwai/">户外</a>
             </div>
         </div>
     </div>
