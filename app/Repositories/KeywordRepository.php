@@ -40,7 +40,7 @@ class KeywordRepository extends BaseRepository
     {
         if($this->keywordExists($data['name'])) {
             if(isset($data['type'])) {
-                $this->model()->where('name',$data['name'])
+                $this->model->where('name',$data['name'])
                     ->update('type', $data['type']);
             }
            return $this->model->where($data)->first();
