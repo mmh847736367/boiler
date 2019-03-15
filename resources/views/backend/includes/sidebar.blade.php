@@ -70,7 +70,30 @@
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/nccne')) }}" href="{{ route('admin.nccne') }}">
+                            仪表盘
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ active_class(Active::checkUriPattern('admin/nccne/block*')) }}" href="{{ route('admin.nccne.block.index') }}">
+                            文章
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/chinawbk*'), 'open') }}">
+                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/chinawbk*')) }}" href="#">
+                    <i class="nav-icon icon-list"></i>移动图书网管理
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/chinawbk')) }}" href="{{ route('admin.chinawbk') }}">
+                            仪表盘
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/chinawbk/block*')) }}" href="{{ route('admin.chinawbk.block.index') }}">
                             文章
                         </a>
                     </li>

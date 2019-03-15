@@ -64,3 +64,22 @@ Breadcrumbs::for('admin.nccne.block.edit', function($trail, $id) {
     $trail->parent('admin.nccne.block.index');
     $trail->push('修改文章', route('admin.nccne.block.edit', $id));
 });
+
+Breadcrumbs::for('admin.chinawbk', function($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('移动图书网', route('admin.chinawbk'));
+});
+
+Breadcrumbs::for('admin.chinawbk.block.index', function($trail) {
+    $trail->parent('admin.chinawbk');
+    $trail->push('文章管理', route('admin.chinawbk.block.index'));
+});
+
+Breadcrumbs::for('admin.chinawbk.block.edit', function($trail, $id) {
+    $trail->parent('admin.chinawbk.block.index');
+    $trail->push('修改文章', route('admin.chinawbk.block.edit', $id));
+});
+
+
+
+

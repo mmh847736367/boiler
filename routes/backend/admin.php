@@ -64,8 +64,18 @@ Route::group(['prefix' => 'nccne'], function() {
         Route::patch('/', [BlockController::class, 'update'])->name('nccne.block.update');
         Route::delete('/', [BlockController::class, 'destroy'])->name('nccne.block.destroy');
     });
+});
 
+Route::get('chinawbk', [\App\Http\Controllers\Backend\Chinawbk\DashboardController::class, 'index'])->name('chinawbk');
 
+Route::group(['prefix' => 'chinawbk'], function() {
+    Route::get('block', [\App\Http\Controllers\Backend\Chinawbk\BlockController::class, 'index'])->name('chinawbk.block.index');
+
+    Route::group(['prefix' => 'block/{block}'], function() {
+        Route::get('edit', [\App\Http\Controllers\Backend\Chinawbk\BlockController::class, 'edit'])->name('chinawbk.block.edit');
+        Route::patch('/', [\App\Http\Controllers\Backend\Chinawbk\BlockController::class, 'update'])->name('chinawbk.block.update');
+        Route::delete('/', [\App\Http\Controllers\Backend\Chinawbk\BlockController::class, 'destroy'])->name('chinawbk.block.destroy');
+    });
 });
 
 
