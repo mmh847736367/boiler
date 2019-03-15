@@ -52,7 +52,7 @@
                                     <td>{{ $block->name }}</td>
                                     <td>{{ $block->slug }}</td>
                                     <td>{!! $block->status_label !!}</td>
-                                    <td>{{ $block->updated_at->diffForHumans() }}</td>
+                                    <td>{{empty($block->updated_at) ? '' : $block->updated_at->diffForHumans()  }}</td>
                                     <td>{!! $block->action_buttons !!}</td>
                                 </tr>
                             @endforeach
