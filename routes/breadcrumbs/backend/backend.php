@@ -30,6 +30,7 @@ Breadcrumbs::for('admin.jiangshanshi', function($trail) {
     $trail->push('拼购网', url('admin/content'));
 });
 
+
 Breadcrumbs::for('admin.category.index', function($trail) {
     $trail->parent('admin.jiangshanshi');
     $trail->push('栏目管理', url('admin/content/category'));
@@ -47,3 +48,19 @@ Breadcrumbs::for('admin.keyword.create', function($trail) {
 //    $trail->parent('admin.keyword.index');
 //    $trail->push('关键字查询', url('admin/content/keyword/search'));
 //});
+
+
+Breadcrumbs::for('admin.nccne', function($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('你瞅啥', route('admin.nccne'));
+});
+
+Breadcrumbs::for('admin.nccne.block.index', function($trail) {
+    $trail->parent('admin.nccne');
+    $trail->push('文章管理', route('admin.nccne.block.index'));
+});
+
+Breadcrumbs::for('admin.nccne.block.edit', function($trail, $id) {
+    $trail->parent('admin.nccne.block.index');
+    $trail->push('修改文章', route('admin.nccne.block.edit', $id));
+});

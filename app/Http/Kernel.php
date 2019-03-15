@@ -51,6 +51,12 @@ class Kernel extends HttpKernel
             'password_expires',
             'permission:view backend',
         ],
+
+        'nccne' => [
+            'auth',
+            'password_expires',
+            'permission:view nccne'
+        ]
     ];
 
     /**

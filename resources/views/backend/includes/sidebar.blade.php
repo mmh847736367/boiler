@@ -64,6 +64,19 @@
                 </ul>
             </li>
 
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/nccne*'), 'open') }}">
+                <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/nccne*')) }}" href="#">
+                    <i class="nav-icon icon-list"></i>你瞅啥管理
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_class(Active::checkUriPattern('admin/nccne/block*')) }}" href="{{ route('admin.nccne.block.index') }}">
+                            文章
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             {{--<li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/spider*'), 'open') }}">--}}
                 {{--<a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/spider*')) }}" href="#">--}}
                     {{--<i class="nav-icon icon-list"></i> 抓取测试--}}

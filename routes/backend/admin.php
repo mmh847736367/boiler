@@ -3,9 +3,8 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TbSpiderController;
 use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\NavController;
 use App\Http\Controllers\Backend\KeywordController;
-
+use App\Http\Controllers\Backend\Nccne\BlockController;
 /*
  * All route names are prefixed with 'admin.'.
  */
@@ -14,7 +13,6 @@ Route::redirect('/', '/admin/dashboard', 301);
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('content', [DashboardController::class, 'jiangshanshi'])->name('jiangshanshi');
-
 Route::get('spider/tb/show',[TbSpiderController::class, 'showPageIndex'])->name('spider.tbshow');
 Route::post('spider/tb/show',[TbSpiderController::class, 'getGoodInfo'])->name('spider.tbshow.info');
 Route::get('spider/tb/search', [TbSpiderController::class, 'searchPageIndex'])->name('spider.tbsearch');
@@ -23,7 +21,7 @@ Route::post('spider/tb/search', [TbSpiderController::class, 'getSearchItem'])->n
 
 
 /*
- * Category Management
+ * jiangshanshi Category Management
  */
 Route::group(['prefix' => 'content'], function () {
     Route::get('category', [CategoryController::class, 'index'])->name('category.index');
@@ -38,7 +36,7 @@ Route::group(['prefix' => 'content'], function () {
 });
 
 /*
- * Nav Management
+ * jiangshanshi Keyword Management
  */
 Route::group(['prefix' => 'content'], function () {
     Route::get('keyword',[KeywordController::class, 'index'])->name('keyword.index');
@@ -54,3 +52,30 @@ Route::group(['prefix' => 'content'], function () {
         Route::delete('/', [KeywordController::class, 'destroy'])->name('keyword.destroy');
     });
 });
+
+Route::get('nccne', [\App\Http\Controllers\Backend\Nccne\DashboardController::class, 'index'])->name('nccne');
+
+
+Route::group(['prefix' => 'nccne'], function() {
+    Route::get('block', [BlockController::class, 'index'])->name('nccne.block.index');
+
+    Route::group(['prefix' => 'block/{block}'], function() {
+        Route::get('edit', [BlockController::class, 'edit'])->name('nccne.block.edit');
+        Route::patch('/', [BlockController::class, 'update'])->name('nccne.block.update');
+        Route::delete('/', [BlockController::class, 'destroy'])->name('nccne.block.destroy');
+    });
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
