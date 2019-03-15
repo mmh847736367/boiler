@@ -25,12 +25,14 @@ class BlockController
         $q = $request->query('q');
         if(!empty($q)) {
             $blocks = $this->blockRepository
+                ->withTrashed()
                 ->select(['id', 'name', 'slug', 'updated_at'])
                 ->where('name', '%'.$q.'%', 'like')
                 ->orderBy('id', 'desc')
                 ->paginate(25);
         } else {
             $blocks = $this->blockRepository
+                ->withTrashed()
                 ->select(['id', 'name', 'slug', 'updated_at'])
                 ->orderBy('id', 'desc')
                 ->paginate(25);
@@ -57,7 +59,7 @@ class BlockController
 
     public function destroy(Block $block)
     {
-        $this->blockRepository->deleteById($block->id);
+        $block->forceDelete();
 
         return redirect()->route('admin.chinawbk.block.index')->withFlashSuccess('删除成功');
     }
