@@ -20,7 +20,7 @@ class BlockController
 
     public function index(Request $request)
     {
-        DB::enableQueryLog();
+        DB::connection('mysql-litecms')->enableQueryLog();
 
         $q = $request->query('q');
         if(!empty($q)) {
@@ -37,7 +37,7 @@ class BlockController
 
         }
 
-        return response()->json(DB::getQueryLog());
+        dd(DB::connection('mysql-litecms')->getQueryLog());
 
         return view('backend.chinawbk.block.index')
             ->with('blocks',$blocks);
