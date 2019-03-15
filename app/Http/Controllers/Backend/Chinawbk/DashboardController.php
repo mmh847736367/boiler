@@ -16,10 +16,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
+//        \DB::connection('mysql-litecms')->enableQueryLog();
         $count = [];
-        $count['total'] = Block::count();
-        $count['today']  = Block::where('updated_at', '>', Carbon::today())->count();
-        $count['yesterday']  = Block::where([['updated_at', '>', Carbon::yesterday()], ['updated_at', '<', Carbon::today()]])->count();
+        $count['total'] = Block::withTrashed()->count();
+        $count['today']  = Block::withTrashed()->where('updated_at', '>', Carbon::today())->count();
+        $count['yesterday']  = Block::withTrashed()->where([['updated_at', '>', Carbon::yesterday()], ['updated_at', '<', Carbon::today()]])->count();
+
+//        return response()->json(\DB::connection('mysql-litecms')->getQueryLog());
+
         return view('backend.nccne.dashboard', compact('count'));
+
     }
 }
