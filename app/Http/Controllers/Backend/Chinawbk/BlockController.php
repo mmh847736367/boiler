@@ -8,7 +8,7 @@ use App\Models\Chinawbk\Block;
 use App\Repositories\Chinawbk\BlockRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\Backend\Chinawbk\UpdateBlockRequest;
-
+use Illuminate\Support\Facades\DB;
 class BlockController
 {
     protected $blockRepository;
@@ -20,17 +20,25 @@ class BlockController
 
     public function index(Request $request)
     {
+        DB::enableQueryLog();
+
         $q = $request->query('q');
         if(!empty($q)) {
             $blocks = $this->blockRepository
+                ->select(['id', 'name', 'slug', 'updated_at'])
                 ->where('name', '%'.$q.'%', 'like')
                 ->orderBy('id', 'desc')
                 ->paginate(25);
         } else {
             $blocks = $this->blockRepository
+                ->select(['id', 'name', 'slug', 'updated_at'])
                 ->orderBy('id', 'desc')
                 ->paginate(25);
+
         }
+
+        return response()->json(DB::getQueryLog());
+
         return view('backend.chinawbk.block.index')
             ->with('blocks',$blocks);
     }
