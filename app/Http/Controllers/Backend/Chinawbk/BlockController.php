@@ -26,14 +26,14 @@ class BlockController
         if(!empty($q)) {
             $blocks = $this->blockRepository
                 ->withTrashed()
-                ->select(['id', 'name', 'slug', 'updated_at'])
+                ->select(['id', 'name', 'slug', 'status', 'updated_at'])
                 ->where('name', '%'.$q.'%', 'like')
                 ->orderBy('id', 'desc')
                 ->paginate(25);
         } else {
             $blocks = $this->blockRepository
                 ->withTrashed()
-                ->select(['id', 'name', 'slug', 'updated_at'])
+                ->select(['id', 'name', 'slug', 'status', 'updated_at'])
                 ->orderBy('id', 'desc')
                 ->paginate(25);
 
