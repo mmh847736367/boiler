@@ -64,7 +64,7 @@ class PageController
 
         $page = (int) Str::before($page, '.html') ?: 1;
         $keyword = $this->keywordRepository->getBySlug($slug);
-        if(isSensitive($keyword,'jiangshanshi')) {
+        if(isSensitive($keyword->name,'jiangshanshi')) {
             abort('404');
         }
         $cacheKey = 'search.'.$slug.'page.'.$page;
