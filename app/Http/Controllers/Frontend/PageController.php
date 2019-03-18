@@ -65,7 +65,7 @@ class PageController
         $page = (int) Str::before($page, '.html') ?: 1;
         $keyword = $this->keywordRepository->getBySlug($slug);
         if(isSensitive($keyword->name,'jiangshanshi')) {
-            abort('404');
+            abort('403');
         }
         $cacheKey = 'search.'.$slug.'page.'.$page;
         if(Cache::has($cacheKey)) {
@@ -127,7 +127,7 @@ class PageController
         }
 
         if(isSensitive($this->viewData['good']['name'],'jiangshanshi')) {
-            abort('404');
+            abort('403');
         }
 
         return view(is_mobile() ? 'frontend.mobile.show' : 'frontend.show')->with('viewData', $this->viewData);
