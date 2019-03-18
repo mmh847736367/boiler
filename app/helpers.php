@@ -191,6 +191,24 @@ if(! function_exists('mysub')) {
     }
 }
 
+function isSensitive($str, $site) {
+    $path = '/data/www/jv-admin/storage/app/filterword/'.$site.'_utf8.txt';
+
+    if(!file_exists($path)) {
+        return false;
+    }
+
+    $content = file_get_contents($path);
+
+    $words = explode("\r\n",$content);
+
+    foreach ($words as $word) {
+        if(strpos($str, $word) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
 
 function strReplaceEncode($str) {
     return jiaohuan_1(tihuan_1($str),3);

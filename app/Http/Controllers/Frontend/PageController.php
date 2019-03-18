@@ -64,6 +64,9 @@ class PageController
 
         $page = (int) Str::before($page, '.html') ?: 1;
         $keyword = $this->keywordRepository->getBySlug($slug);
+        if(isSensitive($keyword,'jiangshanshi')) {
+            abort('404');
+        }
         $cacheKey = 'search.'.$slug.'page.'.$page;
         if(Cache::has($cacheKey)) {
             $this->viewData = Cache::get($cacheKey);
@@ -121,6 +124,10 @@ class PageController
             $this->_getAitaobaoRelateWordsByName($q);
             $this->viewData['relateGoods'] = $this->resolver->getRelateGoods($q)->take(16);
             Cache::put($cacheKey,$this->viewData, 3*24*60);
+        }
+
+        if(isSensitive($this->viewData['good']['name'],'jiangshanshi')) {
+            abort('404');
         }
 
         return view(is_mobile() ? 'frontend.mobile.show' : 'frontend.show')->with('viewData', $this->viewData);
