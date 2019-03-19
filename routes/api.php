@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 });*/
 use App\Http\Controllers\Frontend\ApiController;
 
-Route::group(['namespace' => 'frontend'], function() {
+//Route::group(['namespace' => 'frontend'], function() {
     Route::get('/v1/search', [ApiController::class,'search']);
     Route::get('/v1/good/{id}', [ApiController::class,'show']);
     Route::get('/v1/index', [ApiController::class,'index']);
-});
+//});
