@@ -16,9 +16,10 @@ use Illuminate\Http\Request;
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
+use App\Http\Controllers\Frontend\ApiController;
 
-Route::group(['namespace' => 'Frontend'], function() {
-    Route::get('/v1/search', 'ApiController@search');
-    Route::get('/v1/good/{id}', 'ApiController@show');
-    Route::get('/v1/index', 'ApiController@index');
+Route::group(['namespace' => 'frontend'], function() {
+    Route::get('/v1/search', [ApiController::class,'search']);
+    Route::get('/v1/good/{id}', [ApiController::class,'show']);
+    Route::get('/v1/index', [ApiController::class,'index']);
 });
