@@ -64,10 +64,10 @@ class ApiController extends Controller
         return view(is_mobile() ? 'frontend.mobile.list' : 'frontend.list')->with('viewData', $this->viewData);
     }
 
-    public function search(Request $request, $page = '1')
+    public function search(Request $request)
     {
 
-        $page = (int) $page ?: 1;
+        $page = $request->page ?: 1;
         $name = $request->keyword;
 
         if(empty($name)) {
