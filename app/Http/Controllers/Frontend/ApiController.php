@@ -68,7 +68,7 @@ class ApiController extends Controller
     {
 
         $page = (int) $page ?: 1;
-        $name = $request->name;
+        $name = $request->keyword;
 
         if(empty($name)) {
             return response()->json([
