@@ -95,8 +95,7 @@ class PageController
         ],$message);
 
         if($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator);
+            return redirect()->route('frontend.index');
         }
         $q = $request->wd;
         $keyword = $this->keywordRepository->create(['name' => $q]);
