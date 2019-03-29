@@ -7,6 +7,7 @@ use Closure;
 /**
  * Class RedirectIfAuthenticated.
  */
+
 class RedirectIfAuthenticated
 {
     /**

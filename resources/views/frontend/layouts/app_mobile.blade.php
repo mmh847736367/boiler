@@ -29,6 +29,7 @@
         <div class="main-top"><a href="javascript:history.go(-1)"><i class="main-icon1"></i></a>
             <div class="search">
                 <form name="searchform" method="POST" action="/query">
+                    @csrf
                     <input type="submit" class="icon-sousuo" value="">
                     <span>
                         <input name="wd" type="text" id="key" class="input_tt" placeholder="搜索商品">
