@@ -58,6 +58,9 @@ class KeywordController extends Controller
     {
         $contents = Storage::get('keyword/jiangshanshi.txt');
         $words = explode("\n", $contents);
+        foreach ($words as $k => $word) {
+            $words[$k] = iconv('gbk','utf8',$word);
+        }
         $words = collect($words)->filter(function($word) {
             return mb_strlen($word) > 1;
         })->map(function($word) {
