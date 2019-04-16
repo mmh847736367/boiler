@@ -64,6 +64,8 @@ class KeywordController extends Controller
         $words = collect($words)->filter(function($word) {
             return mb_strlen($word) > 1;
         })->map(function($word) {
+            $word = trim($word, "\r");
+            $word = trim($word);
             return ['name' => $word, 'type' => 2];
         });
         $keywords = $this->keywordRepository->createMultiple($words->all());
