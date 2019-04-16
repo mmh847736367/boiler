@@ -66,6 +66,7 @@ class KeywordController extends Controller
         })->map(function($word) {
             $word = trim($word, "\r");
             $word = trim($word);
+            $word = iconv('GBK','utf8',$word);
             return ['name' => $word, 'type' => 2];
         });
         $keywords = $this->keywordRepository->createMultiple($words->all());
